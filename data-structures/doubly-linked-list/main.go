@@ -1,8 +1,10 @@
 package main
 
+import "fmt"
+
 // https://www.geeksforgeeks.org/doubly-linked-list/
 
-type DoublyLinkedList[T any] struct {
+type DoublyLinkedList[T comparable] struct {
 	head *Node[T]
 	tail *Node[T]
 }
@@ -13,6 +15,20 @@ func (l *DoublyLinkedList[T]) First() *Node[T] {
 
 func (l *DoublyLinkedList[T]) Last() *Node[T] {
 	return l.tail
+}
+
+// Find is only implemented as an exercise and not a part of the essential
+// functionality of doubly linked lists.
+func (l *DoublyLinkedList[T]) Find(value T) *Node[T] {
+	n := l.First()
+	for n != nil {
+		if n.value == value {
+			return n
+		} else {
+			n = n.Next()
+		}
+	}
+	return nil
 }
 
 func (l *DoublyLinkedList[T]) Push(value T) {
@@ -62,5 +78,13 @@ func main() {
 			println(n.value)
 			n = n.Prev()
 		}
+	}
+
+	println("find")
+	{
+		v := 2
+		fmt.Printf("looking for %d\n", v)
+		n := l.Find(v)
+		fmt.Printf("found %#v\n", n)
 	}
 }
