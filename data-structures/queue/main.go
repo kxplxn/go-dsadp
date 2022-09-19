@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+// https://www.geeksforgeeks.org/queue-data-structure/
+
 type Queue[T any] struct {
 	items []T
 }

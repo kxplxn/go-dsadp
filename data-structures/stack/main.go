@@ -5,6 +5,8 @@ import (
 	"fmt"
 )
 
+// https://www.geeksforgeeks.org/stack-data-structure/
+
 type Stack[T any] struct {
 	items []T
 }

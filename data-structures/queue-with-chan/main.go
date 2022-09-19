@@ -2,6 +2,9 @@ package main
 
 import "fmt"
 
+// https://www.geeksforgeeks.org/queue-data-structure/
+// https://gobyexample.com/channels
+
 type Queue[T any] struct {
 	items chan T
 }
