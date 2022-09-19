@@ -6,6 +6,8 @@ import (
 	"time"
 )
 
+// https://gobyexample.com/channels
+
 func process(ch chan int) {
 	n := rand.Intn(3000)
 	time.Sleep(time.Duration(n) * time.Millisecond)
