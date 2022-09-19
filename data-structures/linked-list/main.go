@@ -2,16 +2,16 @@ package main
 
 // https://www.geeksforgeeks.org/what-is-linked-list/
 
-type List[T any] struct {
+type LinkedList[T any] struct {
 	head *Node[T]
 	tail *Node[T]
 }
 
-func (l *List[T]) First() *Node[T] {
+func (l *LinkedList[T]) First() *Node[T] {
 	return l.head
 }
 
-func (l *List[T]) Push(value T) {
+func (l *LinkedList[T]) Push(value T) {
 	node := &Node[T]{value: value}
 	if l.head == nil {
 		l.head = node
@@ -31,8 +31,9 @@ func (n *Node[T]) Next() *Node[T] {
 }
 
 func main() {
+	println("integer list")
 	{
-		l := &List[int]{}
+		l := &LinkedList[int]{}
 		l.Push(1)
 		l.Push(2)
 		l.Push(3)
@@ -43,8 +44,10 @@ func main() {
 			n = n.Next()
 		}
 	}
+
+	println("string list")
 	{
-		l := &List[string]{}
+		l := &LinkedList[string]{}
 		l.Push("one")
 		l.Push("two")
 		l.Push("three")
