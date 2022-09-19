@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 // https://www.geeksforgeeks.org/binary-tree-data-structure/
 
@@ -38,11 +40,11 @@ func (n *Node) Insert(value int) {
 	}
 }
 
-func (n *Node) Exists(value int) bool {
+func (n *Node) Exists(value int) *Node {
 	if n == nil {
-		return false
+		return nil
 	} else if value == n.value {
-		return true
+		return n
 	} else if value < n.value {
 		return n.left.Exists(value)
 	} else {
@@ -61,7 +63,8 @@ func main() {
 
 	fmt.Println("exists:")
 	for _, lookupValue := range []int{10, 17, 93, 11, 7, 8} {
-		fmt.Printf("%d %v\n", lookupValue, t.node.Exists(lookupValue))
+		node := t.node.Exists(lookupValue)
+		fmt.Printf("%d %v\n", lookupValue, node != nil)
 	}
 }
 
