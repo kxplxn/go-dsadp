@@ -3,11 +3,13 @@ package main
 import (
 	"log"
 	"math/rand"
+
+	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 )
 
 // https://www.geeksforgeeks.org/bubble-sort/
 
-func BubbleSort(arr []int) {
+func BubbleSort[T sort.Ordered](arr []T) {
 	swapped := true
 	for swapped {
 		swapped = false
