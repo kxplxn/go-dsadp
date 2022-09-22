@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 	"log"
 	"math/rand"
+
+	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 )
 
 //https://www.geeksforgeeks.org/merge-sort/

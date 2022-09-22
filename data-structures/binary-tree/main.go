@@ -1,8 +1,6 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 // https://www.geeksforgeeks.org/binary-tree-data-structure/
 

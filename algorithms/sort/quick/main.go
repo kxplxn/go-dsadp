@@ -1,9 +1,10 @@
 package main
 
 import (
-	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 	"log"
 	"math/rand"
+
+	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 )
 
 func Partition[T sort.Ordered](arr []T, low, high int) int {
