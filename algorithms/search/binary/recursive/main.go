@@ -5,16 +5,16 @@ import (
 	"log"
 )
 
-func BinarySearchRange(arr []string, query string, iLow int, iHigh int) (int, error) {
-	if iHigh < iLow || len(arr) == 0 {
+func BinarySearchRange(arr []string, query string, low, high int) (int, error) {
+	if high < low || len(arr) == 0 {
 		return -1, errors.New("not found")
 	}
 
-	mid := iLow + (iHigh-iLow)/2
+	mid := low + (high-low)/2
 	if arr[mid] > query {
-		return BinarySearchRange(arr, query, iLow, mid-1)
+		return BinarySearchRange(arr, query, low, mid-1)
 	} else if arr[mid] < query {
-		return BinarySearchRange(arr, query, mid+1, iHigh)
+		return BinarySearchRange(arr, query, mid+1, high)
 	} else {
 		return mid, nil
 	}
