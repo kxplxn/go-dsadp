@@ -5,6 +5,8 @@ import (
 	"log"
 )
 
+// https://www.geeksforgeeks.org/binary-search
+
 func BinarySearchRange(arr []string, query string, low, high int) (int, error) {
 	if high < low || len(arr) == 0 {
 		return -1, errors.New("not found")

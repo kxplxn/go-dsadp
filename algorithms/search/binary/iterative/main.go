@@ -5,6 +5,8 @@ import (
 	"log"
 )
 
+// https://www.geeksforgeeks.org/binary-search
+
 func BinarySearch(arr []string, query string) (int, error) {
 	low, high := 0, len(arr)-1
 

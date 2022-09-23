@@ -7,7 +7,7 @@ import (
 	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 )
 
-//https://www.geeksforgeeks.org/merge-sort/
+// https://www.geeksforgeeks.org/merge-sort
 
 func MergeSort[T sort.Ordered](arr []T) []T {
 	if len(arr) < 2 {

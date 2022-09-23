@@ -7,7 +7,25 @@ import (
 	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 )
 
-func Partition[T sort.Ordered](arr []T, low, high int) int {
+// https://www.geeksforgeeks.org/quick-sort/
+
+func QuickSort[T sort.Ordered](arr []T) {
+	quickSortRange(arr, 0, len(arr)-1)
+}
+
+func quickSortRange[T sort.Ordered](arr []T, low, high int) {
+	if len(arr) < 2 {
+		return
+	}
+
+	if low < high {
+		iPivot := partition(arr, low, high)
+		quickSortRange(arr, low, iPivot-1)
+		quickSortRange(arr, iPivot+1, high)
+	}
+}
+
+func partition[T sort.Ordered](arr []T, low, high int) int {
 	iSwap := low
 	pivotItem := arr[high]
 
@@ -20,22 +38,6 @@ func Partition[T sort.Ordered](arr []T, low, high int) int {
 
 	arr[iSwap], arr[high] = pivotItem, arr[iSwap]
 	return iSwap
-}
-
-func QuickSortRange[T sort.Ordered](arr []T, low, high int) {
-	if len(arr) < 2 {
-		return
-	}
-
-	if low < high {
-		iPivot := Partition(arr, low, high)
-		QuickSortRange(arr, low, iPivot-1)
-		QuickSortRange(arr, iPivot+1, high)
-	}
-}
-
-func QuickSort[T sort.Ordered](arr []T) {
-	QuickSortRange(arr, 0, len(arr)-1)
 }
 
 func main() {

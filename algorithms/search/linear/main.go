@@ -5,6 +5,8 @@ import (
 	"log"
 )
 
+// https://www.geeksforgeeks.org/linear-search
+
 func LinearSearch(items []string, query string) (int, error) {
 	for i, v := range items {
 		if v == query {

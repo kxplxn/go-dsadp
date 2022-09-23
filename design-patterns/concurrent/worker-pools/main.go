@@ -24,15 +24,15 @@ func main() {
 	chA := make(chan int)
 	chB := make(chan int)
 
-	//launch a number of workers that listens to the
-	//input channel and writes to the output channel
-	//since echo takes time, spinning up multiple
-	//instances of it improves performance
+	// launch a number of workers that listens to the
+	// input channel and writes to the output channel
+	// since echo takes time, spinning up multiple
+	// instances of it improves performance
 	for i := 0; i < 100; i++ {
 		go echo(chA, chB)
 	}
 
-	//start producing values into the input channel
+	// start producing values into the input channel
 	go produce(chA)
 
 	for n := range chB {

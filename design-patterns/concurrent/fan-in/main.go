@@ -21,7 +21,7 @@ func consumer(ch <-chan int, name string) {
 	}
 }
 
-func fanIn[T any](chA, chB <-chan T, chC chan<- T) {
+func FanIn[T any](chA, chB <-chan T, chC chan<- T) {
 	for {
 		select {
 		case val := <-chA:
@@ -41,5 +41,5 @@ func main() {
 	go producer(chB, "B")
 	go consumer(chC, "C")
 
-	fanIn(chA, chB, chC)
+	FanIn(chA, chB, chC)
 }
