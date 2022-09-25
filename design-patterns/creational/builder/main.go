@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// https://refactoring.guru/design-patterns/builder
+
 // IHomeBuilder is the Builder interface. It declares product construction steps
 // that are common to all types of concrete builders.
 type IHomeBuilder interface {
@@ -22,7 +24,9 @@ func getBuilder(builderType string) IHomeBuilder {
 	return nil
 }
 
-// Home is a product. It is the resulting object.
+// Home is a product. It is the resulting object. Products constructed by
+// different builders don’t have to belong to the same class hierarchy or
+// interface.
 type Home struct {
 	windowType string
 	doorType   string
@@ -114,6 +118,13 @@ func (b *IglooBuilder) getHome() Home {
 	}
 }
 
+// The Client must associate one of the builder objects with the director.
+// Usually, it’s done just once, via parameters of the director’s constructor.
+// Then the director uses that builder object for all further construction.
+// However, there’s an alternative approach for when the client passes the
+// builder object to the production method of the director. In this case, you
+// can use a different builder each time you produce something with the
+// director.
 func main() {
 	normalBuilder := getBuilder("apartment")
 	iglooBuilder := getBuilder("igloo")
