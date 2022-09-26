@@ -14,14 +14,14 @@ type IHomeBuilder interface {
 }
 
 func getBuilder(builderType string) IHomeBuilder {
-	if builderType == "apartment" {
+	switch builderType {
+	case "apartment":
 		return newApartmentBuilder()
-	}
-
-	if builderType == "igloo" {
+	case "igloo":
 		return newIglooBuilder()
+	default:
+		return nil
 	}
-	return nil
 }
 
 // Home is a product. It is the resulting object. Products constructed by
