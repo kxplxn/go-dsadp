@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// https://refactoring.guru/design-patterns/adapter
+
 // Client represents an existing business logic in the program that we want to
 // extend.
 type Client struct{}

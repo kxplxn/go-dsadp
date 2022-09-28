@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+// https://refactoring.guru/design-patterns/adapter
+
 // Component serves as the Component Interface, describing operations that are
 // common to both simple and complex elements of the tree.
 type Component interface {
