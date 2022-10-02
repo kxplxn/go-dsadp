@@ -2,12 +2,13 @@ package main
 
 import (
 	"fmt"
+	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 	"math/rand"
 )
 
 // https://www.geeksforgeeks.org/selection-sort
 
-func SelectionSort(arr []int) {
+func SelectionSort[T sort.Ordered](arr []T) {
 	for i := 0; i < len(arr); i++ {
 		iMin := i
 		for j := iMin; j < len(arr); j++ {
