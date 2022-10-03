@@ -2,10 +2,12 @@ package main
 
 import "fmt"
 
-// server is the Service Interface. It declares the interface of the Service.
+// https://refactoring.guru/design-patterns/proxy
+
+// Server is the Service Interface. It declares the interface of the Service.
 // The proxy must follow this interface to be able to disguise itself as a
 // service object.
-type server interface {
+type Server interface {
 	handleRequest(string, string) (int, string)
 }
 
