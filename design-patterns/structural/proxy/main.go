@@ -9,8 +9,28 @@ type server interface {
 	handleRequest(string, string) (int, string)
 }
 
+// Application is the Service. It is a class that provides some useful business
+// logic.
+type Application struct {
+}
+
+const (
+	urlAppStatus  = "/app/status"
+	urlCreateUser = "/create/user"
+)
+
+func (a *Application) handleRequest(url, method string) (int, string) {
+	if url == urlAppStatus && method == "GET" {
+		return 200, "Ok"
+	}
+	if url == urlCreateUser && method == "POST" {
+		return 201, "User Created"
+	}
+	return 404, "Not Ok"
+}
+
 // Ngnix is the Proxy class. It has a reference field that points to a service
-// object. After the proxy finishes its processing , it passes the request to
+// object. After the proxy finishes its processing, it passes the request to
 // the service object. Usually, proxies manage the full lifecycle of their
 // service objects.
 type Ngnix struct {
@@ -42,26 +62,6 @@ func (n *Ngnix) checkRateLimiting(url string) bool {
 
 	n.rateLimiter[url]++
 	return true
-}
-
-// Application is the Service. It is a class that provides some useful business
-// logic.
-type Application struct {
-}
-
-const (
-	urlAppStatus  = "/app/status"
-	urlCreateUser = "/create/user"
-)
-
-func (a *Application) handleRequest(url, method string) (int, string) {
-	if url == urlAppStatus && method == "GET" {
-		return 200, "Ok"
-	}
-	if url == urlCreateUser && method == "POST" {
-		return 201, "User Created"
-	}
-	return 404, "Not Ok"
 }
 
 func main() {
