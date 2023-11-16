@@ -1,4 +1,4 @@
-package concurrent_singleton
+package concurrent_singleton_with_chan
 
 import (
 	"fmt"
