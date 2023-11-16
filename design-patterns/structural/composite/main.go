@@ -58,5 +58,5 @@ func main() {
 	folder2.Add(file3)
 	folder2.Add(folder1)
 
-	folder2.Search("baban")
+	folder2.Search("foo")
 }

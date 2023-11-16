@@ -2,19 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 	"math/rand"
+
+	"github.com/kxplxn/learn_go-dsadp/algorithms/sort"
 )
-
-type Baban interface{ do() }
-
-type baban struct{}
-
-func NewBaban() Baban {
-	return &baban{}
-}
-
-func (b *baban) do() {}
 
 func InsertionSort[T sort.Ordered](arr []T) []T {
 	for currentIndex := 1; currentIndex < len(arr); currentIndex++ {
